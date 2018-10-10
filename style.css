@@ -1,0 +1,75 @@
+body {
+    display: block;
+    position: relative;
+}
+.container {
+    position: relative;
+}
+
+.field {
+    display: block;
+    margin: 2em auto;
+    padding: 1.5em;
+    border: 3px solid olive;
+    border-radius: 15px;
+    background: #ddd;
+    box-sizing: border-box;
+    width: 450px;
+    height: 450px;
+}
+.field .cellline {
+    display: inline-block;
+}
+.field .cellline .cell {
+    display: flex;
+    float: left;
+    max-width: 25%;
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    box-sizing: border-box;
+    border: 1px solid #777;
+    border-radius: 10px;
+}
+.field .cellline .cell .digit {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 60px;
+}
+
+.check-button,
+.shuffle-button {
+    display: block!important;
+    margin: 0 auto;
+}
+.shuffle-button {
+    margin: 1.5em ;
+}
+
+.button-panel {
+    position: absolute;
+    top: 2em;
+    right: 0;
+    background: #ddd;
+    width: 20%;
+    height: 450px;
+    border: 1px solid #777;
+    border-radius: 5px;
+}
+
+.gui-panel .status-sign {
+    margin: 0.5em auto;
+    font-size: 28px;
+    text-align: center;
+    color: red;
+}
+.gui-panel .status-sign.winner-dinner {
+    color: green;
+}
+
+.infobox {
+    color: #000;
+    cursor: pointer;
+}
+
