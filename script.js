@@ -189,5 +189,12 @@ $(document).ready(function(){
         shuffle();
     });
     
+    $(".infobox").hover(function(){
+        $(".hovered-info").fadeIn();
+    });
+    $(".help-block").on("mouseleave", function(){
+        $(".hovered-info").fadeOut();
+    });
+    
     shuffle();
 });
