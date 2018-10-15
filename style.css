@@ -30,6 +30,14 @@ body {
     box-sizing: border-box;
     border: 1px solid #777;
     border-radius: 10px;
+    cursor: pointer;
+}
+.field .cellline .cell.empty {
+    cursor: not-allowed;
+}
+.field .cellline .cell.error {
+    border: 3px solid red;
+    transition: border 0.3s;
 }
 .field .cellline .cell .digit {
     display: block;
@@ -71,5 +79,13 @@ body {
 .infobox {
     color: #000;
     cursor: pointer;
+}
+
+footer .donate-button {
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    _background-image: url("https://letraceursnork.github.io/donate/donate.png");
+    transform: scale(0.75);
 }
 

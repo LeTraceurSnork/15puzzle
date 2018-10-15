@@ -1,4 +1,6 @@
 const CORRECT = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 X";
+const MIN = 350;         // number of shuffles, minimum
+const MAX = 1000;        // number of shuffles, maximum
 var mapLock = false;
 
 $(document).ready(function(){
@@ -74,14 +76,15 @@ $(document).ready(function(){
         $(".check-button").prop("disabled", true);
     }
     function notYet() {             // alerts if not solved
-        $(".status-sign").removeClass("winner-dinner");
+        $(".status-sign").hide();
+        $(".status-sign").fadeIn();
     }
     
-    function checkWin() {
+    function checkWin(forceCheck = false) {
         var answer = checkField();          // TRUE if solved
         if(answer) {
             winnerDinner();
-        } else {
+        } else if(forceCheck) {
             notYet();
         }
     }
@@ -92,8 +95,6 @@ $(document).ready(function(){
     // **
     function shuffle() {
         var shuffleQueue = [];
-        const MIN = 350;         // number of shuffles, minimum
-        const MAX = 1000;        // number of shuffles, maximum
         var steps = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
         for(var i=0; i<steps; i++) {
             var direction = Math.floor(Math.random() * 4);
@@ -152,8 +153,36 @@ $(document).ready(function(){
         }
 	});
     
+    $(".cell").click(function(){
+        var isNbr = false;                              // the cell is not neighbour by default
+        var curIndexX = $(this).index();
+        var curIndexY = $(this).parent().index();
+        var emptyIndexX = $(".empty").index();
+        var emptyIndexY = $(".empty").parent().index();
+        
+        var xDiff = Math.abs(curIndexX - emptyIndexX);
+        var yDiff = Math.abs(curIndexY - emptyIndexY)
+        if((xDiff == 1 && yDiff == 0) || (xDiff == 0 && yDiff == 1)) {
+            isNbr = true;                               // if cell is one step left/right/up/down - it's neighour
+        }
+        if(isNbr) {
+            if(curIndexX - emptyIndexX == 1) {          // if nbr cell is righter - move it left
+                moveLeft();
+            } else if (curIndexX - emptyIndexX == -1) { // if nbr cell is lefter - move it right
+                moveRight();
+            } else if(curIndexY - emptyIndexY == 1) {   // if nbr cell is below - move it up
+                moveUp();
+            } else if(curIndexY - emptyIndexY == -1) {  // if nbr cell is above - move it down
+                moveDown();
+            }
+        } else {
+            $(this).effect("highlight", {color: "rgba(255, 0, 0, 0.5)"}, 700);
+        }
+        
+    });
+    
     $(".check-button").click(function(){
-        checkWin();
+        checkWin(true);
     });
     
     $(".shuffle-button").click(function(){
