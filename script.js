@@ -1,6 +1,6 @@
 const CORRECT = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 X";
-const MIN = 350;         // number of shuffles, minimum
-const MAX = 1000;        // number of shuffles, maximum
+const MIN = 3;         // number of shuffles, minimum
+const MAX = 1;        // number of shuffles, maximum
 var mapLock = false;
 
 $(document).ready(function(){
