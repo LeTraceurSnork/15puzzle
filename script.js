@@ -189,6 +189,7 @@ $(document).ready(function(){
         shuffle();
     });
     
+    $(".infobox").attr("title", "");
     $(".infobox").hover(function(){
         $(".hovered-info").fadeIn();
     });
