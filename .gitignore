@@ -1,2 +1,5 @@
 # IDE directories
 .idea/
+
+# Vendors
+node_modules/

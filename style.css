@@ -1,7 +1,3 @@
-body {
-    display: block;
-    position: relative;
-}
 .container {
     position: relative;
 }
@@ -17,9 +13,11 @@ body {
     width: 450px;
     height: 450px;
 }
+
 .field .cellline {
     display: inline-block;
 }
+
 .field .cellline .cell {
     display: flex;
     float: left;
@@ -32,13 +30,16 @@ body {
     border-radius: 10px;
     cursor: pointer;
 }
+
 .field .cellline .cell.empty {
     cursor: not-allowed;
 }
+
 .field .cellline .cell.error {
     border: 3px solid red;
     transition: border 0.3s;
 }
+
 .field .cellline .cell .digit {
     display: block;
     margin: auto;
@@ -48,11 +49,12 @@ body {
 
 .check-button,
 .shuffle-button {
-    display: block!important;
+    display: block !important;
     margin: 0 auto;
 }
+
 .shuffle-button {
-    margin: 1.5em ;
+    margin: 1.5em;
 }
 
 .button-panel {
@@ -70,6 +72,7 @@ body {
     position: relative;
     display: inline-block;
 }
+
 .help-block .hovered-info {
     display: none;
     position: absolute;
@@ -90,6 +93,7 @@ body {
     text-align: center;
     color: red;
 }
+
 .gui-panel .status-sign.winner-dinner {
     color: green;
 }
@@ -106,4 +110,3 @@ footer .donate-button {
     _background-image: url("https://letraceursnork.github.io/donate/donate.png");
     transform: scale(0.75);
 }
-
